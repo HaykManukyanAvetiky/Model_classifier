@@ -14,7 +14,7 @@ model = torch.load('model_clasifier_v_1_0.torch', map_location=device)
 
 #print(model)
 
-image = Image.open( 'data/65212397_674340922990813_1189716705141394165_n.jpg')
+image = Image.open( 'data/s1200.jfif')
 
 transformed = model.transform(image).float()
 transformed = transformed.unsqueeze(0).to(device)

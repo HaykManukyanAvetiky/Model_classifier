@@ -16,8 +16,8 @@ def gold_frame(image):
     a, b = image.size
     backgrd = backgrd.resize((a+20, b+20))
     backgrd.paste(image,(10,10))
-    ration = max((a,b))//500
-    backgrd = backgrd.resize((a//ration, b//ration))
+    ration = max((a,b))/400
+    backgrd = backgrd.resize((int(a/ration), int(b/ration)))
     return backgrd
 
 
@@ -32,7 +32,8 @@ def add_right_pan(backgrd):
 def write_on_img(image, msg):
     a, b = image.size
     draw = ImageDraw.Draw(image)
-    font = ImageFont.truetype("fonts/CaviarDreams_BoldItalic.ttf", 45)
+    fsize = a//30
+    font = ImageFont.truetype("fonts/CaviarDreams_BoldItalic.ttf", fsize)
     draw.text(xy=(a//2, b//4), text=msg, fill=(212,175,55), font=font,spacing=10 )
     return image
         

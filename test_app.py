@@ -10,12 +10,12 @@ import utils
 import torch
 from PIL import Image
 
-model = torch.load('model_clasifier_v_1_0.torch', map_location=device)
+model = torch.load('model_clasifier_v_3_1.torch', map_location=device)
 
 #print(model)
 
 
-image = Image.open( 'data/s1200.jfif')
+image = Image.open( 'data/images (1).jfif')
 
 
 
@@ -33,8 +33,8 @@ m_map = { 0: 'Plus-Sizel',
     4: 'Glamour and Fashion' }
 sorte, indices =  torch.exp(a).sort(descending=True) 
 
-indices =  indices[sorte > 0.01]
-sorte = sorte[sorte > 0.01]
+indices =  indices[sorte > 0.2]
+sorte = sorte[sorte > 0.2]
 sorte = sorte/sorte.sum()
 sorte = sorte * 100
 

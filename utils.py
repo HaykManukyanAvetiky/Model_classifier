@@ -12,6 +12,10 @@ from PIL import ImageDraw
 
 
 def gold_frame(image):
+    """
+    Resizes pic about 400 piksel and
+    Srounds Pic with gold frame with 10 piksel thickness
+    """
     backgrd = Image.open( 'gold_backgrd.jpg')
     a, b = image.size
     backgrd = backgrd.resize((a+20, b+20))
@@ -22,6 +26,11 @@ def gold_frame(image):
 
 
 def add_right_pan(backgrd):
+    """
+    Creats new Image twise as wider than original, 
+    and puts original at left side leaving room for 
+    results for classifier
+    """
     a, b = backgrd.size
     main_img = Image.new('RGB', size=((a+50)*2, b+50 ))
     main_img.paste(backgrd, (25,25))
@@ -30,6 +39,10 @@ def add_right_pan(backgrd):
 
 
 def write_on_img(image, msg):
+    """
+    Wrights text on right side of image.
+    Blank space coming from function add_right_pan
+    """
     a, b = image.size
     draw = ImageDraw.Draw(image)
     fsize = a//30
@@ -39,6 +52,10 @@ def write_on_img(image, msg):
         
 
 def create_result(image, msg):
+    """
+    Combines three functions(gold_frame,add_right_pan,write_on_img )
+    and gives final results 
+    """
     image = gold_frame(image) 
     image = add_right_pan(image)
     image = write_on_img(image, msg)

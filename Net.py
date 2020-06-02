@@ -17,6 +17,9 @@ from collections import OrderedDict
 
 
 class TempletLayer(nn.Module):
+  """
+  Basic block for feature extraction part of clasifiier
+  """
 
   def __init__(self, n_input, n_output, kernel, stride):
     super(TempletLayer, self).__init__()
@@ -36,6 +39,9 @@ class TempletLayer(nn.Module):
  
     
 class Net(nn.Module):
+  """
+  Net class, first import, then load torch file
+  """
   
   def __init__(self):
     super(Net, self).__init__()
@@ -74,13 +80,16 @@ class Net(nn.Module):
 
   @staticmethod
   def centre_crop(image):
+    """
+    resizes image about 100 piksel and make centre crop
+    """
     a , b = image.size
     main_edge = a if a < b else b
-    ratio = main_edge/224
+    ratio = main_edge/100
     new_a, new_b = int(a/ratio), int(b/ratio)
-    crop_a, crop_b = int((new_a - 224)/2) , int((new_b-224)/2)
+    crop_a, crop_b = int((new_a - 100)/2) , int((new_b-100)/2)
     image = image.resize((new_a, new_b))
-    image = image.crop((crop_a,crop_b,crop_a+224,crop_b+224))
+    image = image.crop((crop_a,crop_b,crop_a+100,crop_b+100))
     return image
   
   

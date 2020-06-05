@@ -16,7 +16,7 @@ def gold_frame(image):
     Resizes pic about 400 piksel and
     Srounds Pic with gold frame with 10 piksel thickness
     """
-    backgrd = Image.open( 'gold_backgrd.jpg')
+    backgrd = Image.open( 'img/gold_backgrd.jpg')
     a, b = image.size
     backgrd = backgrd.resize((a+20, b+20))
     backgrd.paste(image,(10,10))

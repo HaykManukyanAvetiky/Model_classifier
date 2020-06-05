@@ -10,12 +10,12 @@ import utils
 import torch
 from PIL import Image
 
-model = torch.load('model_clasifier_v_3_1.torch', map_location=device)
+model = torch.load('cnns/model_clasifier_v_3_1.torch', map_location=device)
 
 #print(model)
 
 
-image = Image.open( 'data/images (1).jfif')
+image = Image.open( 'test_data/images (1).jfif')
 
 
 

@@ -10,7 +10,7 @@ import utils
 import torch
 from PIL import Image
 
-model = torch.load('cnns/model_clasifier_v_3_1.torch', map_location=device)
+model = torch.load('cnns/model_clasifier_v_3_2.torch', map_location=device)
 model.eval()
 #print(model)
 

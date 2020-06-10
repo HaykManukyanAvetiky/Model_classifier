@@ -12,10 +12,12 @@ import classifier
 
 app = Flask(__name__, static_folder='templates/img')
 
-#image = Image.open( 'test_data/images (1).jfif')
+image = Image.open( 'test_data/80e599ad042eb77aefb07103a243a1d5.jpg')
 
-#model.predict(image).show()
+classifier.predict(image).show()
 
+
+"""
 @app.route('/')
 @app.route('/index')
 def home():
@@ -32,3 +34,5 @@ def result():
 
 if __name__ == '__main__':
 	app.run(debug = True)
+    
+    """

@@ -9,6 +9,10 @@ Created on Wed May 20 15:29:56 2020
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
+import random
+import string
+#import tempfile
+import os
 
 
 def gold_frame(image):
@@ -60,4 +64,15 @@ def create_result(image, msg):
     image = add_right_pan(image)
     image = write_on_img(image, msg)
     return image
+
+
+def get_path(stringLength=20):
+    """
+    Returns temp file path
+    """
+    letters = string.ascii_lowercase
+    name = ''.join(random.choice(letters) for i in range(stringLength))
+    #tmp_dir = tempfile.gettempdir()
+    #name = os.path.join(tmp_dir,name)
+    return  'img/chache/' + name + '.jpg'
     

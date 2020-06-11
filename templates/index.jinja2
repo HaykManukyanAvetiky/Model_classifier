@@ -2,16 +2,28 @@
 
 {% block content %}
 			
-			<form class="md-form" action="/result">
-			  <div class="file-field">				
-				<div class="d-flex justify-content-center">
-				  <div class="btn btn-mdb-color btn-rounded float-left">
-					<span>Add photo</span>
-					<input type="file">
-					<input type="submit">
-				  </div>
+			<form class="md-form" action="/index" method="POST" enctype="multipart/form-data">
+			
+				<div class="row">
+					<div class="file-field">
+						<a class="btn-floating peach-gradient mt-0 float-left">
+						  <i class="fas fa-paperclip" aria-hidden="true"></i>
+						  <label> Select Image </label>
+						  <input type="file" name="image" >
+						</a>	
+					</div>
 				</div>
-			  </div>
+				
+				<div class="row">
+				<button type="submit" class="btn btn-danger">Submit</button>
+				</div>
+				
+				<div class="row">
+				<img src="{{ path }}" class="img-fluid">
+				</div>
+
+			
+			
 			</form>		
 
 {% endblock %}

@@ -24,7 +24,7 @@ app = Flask(__name__) # , static_folder='templates/img'
 @app.route('/', methods=["GET", "POST"])
 @app.route('/index', methods=["GET", "POST"])
 def home():
-    path = "img/types-of-female-models.png"
+    path = "static/img/types-of-female-models.png"
     if request.method == "POST":
         if request.files:    
             image = Image.open( request.files["image"]  ) 

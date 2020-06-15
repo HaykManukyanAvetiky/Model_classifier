@@ -74,5 +74,5 @@ def get_path(stringLength=20):
     name = ''.join(random.choice(letters) for i in range(stringLength))
     #tmp_dir = tempfile.gettempdir()
     #name = os.path.join(tmp_dir,name)
-    return  'img/chache/' + name + '.jpg'
+    return  'static/img/chache/' + name + '.jpg'
     

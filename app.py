@@ -31,7 +31,7 @@ def home():
             image = classifier.predict(image)
             #path = os.path.join( app.static_folder, "/SYS_TEMP", utils.get_path())            
             path = utils.get_path()
-            image.save(os.path.join('static', path))
+            image.save(path)
             #return redirect(request.url)
             return render_template('index.jinja2',path=path)
             
